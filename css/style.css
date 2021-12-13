@@ -103,7 +103,7 @@ path.current-floor {
   line-height: 44px;
   color: #635854;
 }
-.counter{
+.floor-counter {
   color:#635854;
   font-size: 124px;
   font-family: "Bebas Neue",  sans-serif;
@@ -115,4 +115,97 @@ path.current-floor {
   color:white;
   padding: 16px 36px;
   cursor: pointer;
+}
+.modal{
+  position: fixed; /*фиксированная позиция, поверх всего сайта*/
+  left: 0; /*приклеиваю к левому краю*/
+  top: 0;  /*приклеиваю к верху*/
+  width: 100%;
+  height: 100%; /*окно занимает всю страницу целиком*/
+  background-color: rgba(0, 0, 0, 0.8);   /*полупрозрачный фоновый цвет*/
+  display: flex;  /*родительский элемен modal - гибкий*/
+  justify-content: center;
+  align-items: center; /*выровнили диалоговое окно по горизонтали и вертикали*/
+  opacity: 0; /*сделаем прозрачным окно*/
+  transform: scale(0); /* скроем окно*/
+  transition: opacity 0.2s; /*окно будет появляться 0,2 сеунды*/
+}
+.is-open{  /*при нажатии окно будет меняться*/
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-dialog{
+  position: relative;
+  max-width: 1000px;
+  min-height: 565px;
+  background-color:white;
+  flex-grow: 1; /* проявилось окно*/
+  display: flex; /*теперь видно разделение картинки и информации, так как без этого тега объекты распологались друг з адругом в ряд*/
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+.is-open > .modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+.modal-image{
+  background-color: #EBEBEB;
+  width: 60%;
+  text-align: center; /*весь текс и картинки выровнились по центру*/
+  padding: 50px;
+}
+.flats path {
+  opacity: 0;
+  cursor: pointer;
+}
+.flats path:hover {
+  opacity: 1;
+}
+.modal-title{
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  font-family: "Bebas Neue",  sans-serif;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.modal-info{
+  width: 40%;
+  padding: 50px 46px;
+}
+.flat-list{
+  padding: 0;
+  list-style: none;
+  margin-top: 55px;
+}
+.flat-link{
+ color: #635854;
+ font-size: 16px;
+ line-height: 19px;
+ text-decoration: none;
+}
+.flat-item{
+  margin-bottom: 10px;
+}
+.flat-link:hover{
+  color: #3596F5;
+  text-decoration: underline;
+}
+.modal-alert{
+  font-style: italic;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  font-weight: normal;
+  margin-top: 56px;
+}
+.modal-close-button{
+  position: absolute;
+  right: 27px;
+  top: 38px;
+  cursor: pointer;
+  border:none;
+  background-color: #fff;
 }
